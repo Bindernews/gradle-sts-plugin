@@ -46,7 +46,7 @@ class ModMetaExtension(
     val baseGameJar: FileCollection get() = project.files("${stsHome.get()}/desktop-1.0.jar")
 
     /**
-     * Uses the system properties `steam.dir` and `sts.home` to set the appropriate search directories.
+     * Uses the gradle properties `steam.dir` and `sts.home` to set the appropriate search directories.
      *
      * First if `steam.dir` is defined this will call [useSteam] with that.
      * Second if `sts.home` is defined, it will be used to set [stsHome], potentially overriding

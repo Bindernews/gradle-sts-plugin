@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 group = "net.bindernews.gradle.stsplugin"
-version = "0.0.1"
+version = "0.0.2"
 
 plugins {
     id("org.jetbrains.kotlin.jvm") version "1.6.21"
@@ -22,7 +22,7 @@ dependencies {
 
 gradlePlugin {
     plugins {
-        create("modmeta") {
+        create(project.name) {
             id = "net.bindernews.gradle.stsplugin"
             implementationClass = "net.bindernews.gradle.stsplugin.StSPlugin"
         }
@@ -40,11 +40,11 @@ publishing {
             }
         }
     }
-    publications {
-        register<MavenPublication>("gpr") {
-            from(components["java"])
-        }
-    }
+//    publications {
+//        register<MavenPublication>("gpr") {
+//            from(components["java"])
+//        }
+//    }
 }
 
 tasks.getByName<KotlinCompile>("compileKotlin") {

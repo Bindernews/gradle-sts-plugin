@@ -23,10 +23,10 @@ class StSPlugin : Plugin<Project> {
         }
 
         val jarTask = project.tasks.named("jar", Jar::class.java)
-        project.tasks.named("installJar", Copy::class.java) {
+        project.tasks.register("installJar", Copy::class.java) {
             group = "build"
             description = "Copy the mod jar file into the StS mods directory"
-            mustRunAfter(jarTask)
+            dependsOn(jarTask)
             from(jarTask.map { it.archiveFile })
             into(modMetaExt!!.stsHome.dir("mods"))
         }

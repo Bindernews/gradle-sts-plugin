@@ -1,1 +1,1 @@
-rootProject.name = "gradle-sts-plugin"
+rootProject.name = "sts-plugin"
